@@ -28,6 +28,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.generic import RedirectView
 
+from djrill import DjrillAdminSite
 from tastypie.api import NamespacedApi
 
 # Api Resources
@@ -37,6 +38,7 @@ from members.api import MembersResource
 # Signals
 from members import signals
 
+admin.site = DjrillAdminSite()
 admin.autodiscover()
 
 v1_api = NamespacedApi(api_name='v1', urlconf_namespace='namespace')

@@ -11,7 +11,7 @@ class Book(models.Model):
 
     sku = models.CharField(max_length=255, null=False, unique=True)
     name = models.CharField(max_length=255, null=False)
-    description = models.BooleanField(default=True)
+    description = models.TextField(null=True, blank=True)
     total = models.IntegerField(default=0)
     extra_info = JSONField(default={})
     is_active = models.BooleanField(default=True)

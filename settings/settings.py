@@ -11,10 +11,22 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import datetime
+import djcelery
 import os
+import pytz
 import sys
 
+from datetime import date
+from django.utils import timezone
+from os.path import abspath, dirname, basename, join
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+djcelery.setup_loader()
+sys.path.append(os.getcwd())
+
+ROOT_PATH = abspath(join(dirname(__file__), '..'))
+PROJECT_NAME = basename(abspath(dirname(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,20 +44,29 @@ ALLOWED_HOSTS = []
 # Application definition
 
 DJANGO_APPS = (
-    'django.contrib.admin',
+    'django_admin_bootstrapped',
+    'django.contrib.admin.apps.SimpleAdminConfig',
+    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.humanize',
     'django.contrib.messages',
+    'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
 )
 
 THIRD_PARTY_APPS = (
     'allauth',
     'allauth.account',
+    'bootstrapform',
+    'corsheaders',
     'djangobower',
     'django_nose',
     'djcelery',
+    'djcelery_email',
+    'djsupervisor',
+    'djrill',
     'kombu',
     'longerusername',
     'tastypie',
@@ -59,6 +80,7 @@ CUSTOM_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static/')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

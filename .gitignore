@@ -16,6 +16,6 @@ celerybeat-schedule.db
 celerybeat.pid
 celerybeat-schedule
 *.idea
-Retailone/static
+static
 *.zip
 */__MACOSX/*
