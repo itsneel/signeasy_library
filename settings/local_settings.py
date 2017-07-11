@@ -64,7 +64,6 @@ ROOT_URL_WITH_SCHEME = 'http://' + ROOT_URL
 
 ALLOWED_HOSTS = ['*']
 
-
 WSGI_APPLICATION = 'wsgi.local.application'
 
 if len(sys.argv) > 1 and sys.argv[1] == 'test':

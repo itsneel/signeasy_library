@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-WSGI config for Retailone project.
+WSGI config for Library project.
 
 """
 
