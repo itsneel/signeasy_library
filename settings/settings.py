@@ -40,6 +40,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TASTYPIE_DEFAULT_FORMATS = ['json']
 
 # Application definition
 
